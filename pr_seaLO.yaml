@@ -1,0 +1,284 @@
+#set konfigurasi evaluasi: 1=yes, 2=no
+
+seasons: ['DJF','JJA'] 
+annual_ts: 2
+#per sub region ini terkait temporal_annual_cycle_map per grid
+annual_cycle: 2 
+mean_map: 2
+Taylor_diagram_spatial: 2
+Taylor_diagram_spatial_type: 2
+
+#ini tepat jika dilakukan pada wilayah yang identik
+#Taylor_diagram_temporal: 2
+
+temporal_annual_cycle_map: 2
+
+wavelet: 2
+fft: 2
+
+#for wind
+temporal_subset: 2
+
+#Zonal_mean: 1 #khusus SEA
+rainfall_clustering: 2
+eof: 2
+
+# (RCMES will temporally subset data between month_start and month_end.
+# If average_each_year is True (False), seasonal mean in each year is (not) calculated and used for metrics calculation.)
+time:
+    maximum_overlap_period: False
+    start_time: 1981-01-01
+    end_time: 1990-12-01
+    temporal_resolution: monthly
+    month_start: 1
+    month_end: 12
+    average_each_year: False
+
+space:
+    boundary_type: CORDEX southeastasia
+    #or
+    # min_lat: -6.5
+    # max_lat: 7
+    # min_lon: 93
+    # max_lon: 107
+
+# regrid:
+    # regrid_on_reference: False
+    # regrid_dlat: 0.22
+    # regrid_dlon: 0.22
+    
+nobs: 2
+datasets: 
+   # - loader_name: local_split
+     # name: SAOBS(ref) 
+     # file_path: D:/Cordex/RCMES/pr_eva_ds/eva_ds2_1981-01-01_2004-12-01.nc
+     # variable_name: SA-OBS 
+   
+   # - loader_name: local_split
+     # name: CHIRPS
+     # file_path: D:/Cordex/RCMES/pr_eva_ds/eva_ds2_1981-01-01_2004-12-01.nc
+     # variable_name: CHIRPS
+  
+   # - loader_name: local_split
+     # name: GPCC
+     # file_path: D:/Cordex/RCMES/pr_eva_ds/eva_ds2_1981-01-01_2004-12-01.nc
+     # variable_name: GPCC  
+     ##----------------------khusue sea-LO
+       
+   # - loader_name: local_split
+     # name: ERA5
+     # file_path: D:/Cordex/RCMES/pr_eva_ds/pr_SEA_LO_2obs_moe_9model_mme_1981_2005.nc
+     # variable_name: ERA5
+     
+   # - loader_name: local_split
+     # name: ERA5
+     # file_path: D:/Cordex/RCMES/pr_eva_ds/pr_SEA_LO_2obs_moe_9model_mme_1981_2005.nc
+     # variable_name: ERA5
+   
+   - loader_name: local_split
+     name: ERA5
+     file_path: D:/Cordex/RCMES/pr_eva_ds/pr_SEA_LO_2obs_moe_9model_mme_1981_2005.nc
+     variable_name: ERA5
+     
+   # - loader_name: local_split
+     # name: GPCP
+     # file_path: D:/Cordex/RCMES/pr_eva_ds/pr_SEA_LO_2obs_moe_9model_mme_1981_2005.nc
+     # variable_name: GPCP   
+     
+   # - loader_name: local_split
+     # name: MME
+     # file_path: D:/Cordex/RCMES/pr_eva_ds/pr_SEA_LO_2obs_moe_9model_mme_1981_2005.nc
+     # variable_name: MME
+    ##--------------------------------------------------
+    ##---Urutan file ini sudah sesuai dengan file bobot dari Brunner??
+    
+   - loader_name: local_split
+     name: CNRM_a
+     file_path: D:/Cordex/RCMES/pr_eva_ds/pr_SEA_LO_2obs_moe_9model_mme_1981_2005.nc
+     variable_name: CNRM_a
+     
+   - loader_name: local_split
+     name: ECE_b
+     file_path: D:/Cordex/RCMES/pr_eva_ds/pr_SEA_LO_2obs_moe_9model_mme_1981_2005.nc
+     variable_name: ECE_b
+     
+     
+   - loader_name: local_split
+     name: IPSL_b
+     file_path: D:/Cordex/RCMES/pr_eva_ds/pr_SEA_LO_2obs_moe_9model_mme_1981_2005.nc
+     variable_name: IPSL_b
+    
+   - loader_name: local_split
+     name: HadGEM2_d
+     file_path: D:/Cordex/RCMES/pr_eva_ds/pr_SEA_LO_2obs_moe_9model_mme_1981_2005.nc
+     variable_name: HadGEM2_d
+     
+   - loader_name: local_split
+     name: HadGEM2_c
+     file_path: D:/Cordex/RCMES/pr_eva_ds/pr_SEA_LO_2obs_moe_9model_mme_1981_2005.nc
+     variable_name: HadGEM2_c
+    
+   - loader_name: local_split
+     name: HadGEM2_a
+     file_path: D:/Cordex/RCMES/pr_eva_ds/pr_SEA_LO_2obs_moe_9model_mme_1981_2005.nc
+     variable_name: HadGEM2_a
+     
+   - loader_name: local_split
+     name: MPI_c
+     file_path: D:/Cordex/RCMES/pr_eva_ds/pr_SEA_LO_2obs_moe_9model_mme_1981_2005.nc
+     variable_name: MPI_c
+       
+   - loader_name: local_split
+     name: NorESM1_d
+     file_path: D:/Cordex/RCMES/pr_eva_ds/pr_SEA_LO_2obs_moe_9model_mme_1981_2005.nc
+     variable_name: NorESM1_d
+     
+   - loader_name: local_split
+     name: GFDL_b
+     file_path: D:/Cordex/RCMES/pr_eva_ds/pr_SEA_LO_2obs_moe_9model_mme_1981_2005.nc
+     variable_name: GFDL_b
+   
+   # - loader_name: local_split
+     # name: MME
+     # file_path: D:/Cordex/RCMES/sea/WE2_MME2_SEA-LO2_1981-2005.nc
+     # variable_name: pr
+     
+         
+   # - loader_name: local_split
+     # name: WE_Taylor
+     # file_path: D:/Cordex/RCMES/sea/WE_Taylor_SEA-LO_1981-2005.nc
+     # variable_name: pr
+     
+   # - loader_name: local_split
+     # name: WE_SS
+     # file_path: D:/Cordex/RCMES/sea/WE_SS_SEA-LO_1981-2005.nc  
+     # variable_name: pr
+   
+   # - loader_name: local_split
+     # name: WE_Tian
+     # file_path: D:/Cordex/RCMES/sea/WE_Tian_SEA-LO_1981-2005.nc 
+     # variable_name: pr  
+   
+   # - loader_name: local_split
+     # name: WE_Rand
+     # file_path: D:/Cordex/RCMES/sea/WE_Rand3_SEA-LO_1981-2005.nc
+     # variable_name: pr     
+     
+ 
+
+
+workdir: sea #sea_pr #out
+
+var_pr: False   #for zonal
+#belum dibuat
+#aktifkan koding terkait khusus Rainfall: Zonal mean, ENSO, IOD
+
+region: SEA-LO
+
+
+Weighted based spatial or temporal?: 1 #1 spatial #2 temporal
+#Type Taylor   T     CPI      D     PI   SS
+#Metric_type: T
+#pada versi 2c Metric_type sudah otomatis 
+Metric_type: 2c
+metrics_taylor_diagram: ['']
+
+
+taylor_diagram_type?: 1
+
+#jika ini on, off kan semua pilihan lain
+set_data_annual?: 2
+
+##***Untuk Taylor diagram cek juga metrics_and_plots
+spatial_season?: 1 #1 True #2 False
+spatial_season: 
+    season_name: JJA # Annual #DJF error saat atas 1 1 walau disini 2
+    #Annual DJF JJA 
+
+#Nantinya spatial bisa berjalan sesuai subseting pada temporal
+#jika temporal sudah bisa season DJF dll
+temporal_annual?: 2 #1 True #2 False
+temporal_annual:
+    season_name: Annual
+
+temporal_annual_cycle?: 2 #1 True #2 False
+temporal_annual_cycle:
+    season_name: Annual_cycle
+    
+temporal_season?: 2 #1 True #2 False
+temporal_season:
+    season_name: DJF
+#------------------------------------
+    
+
+number_of_metrics_and_plots: 1
+
+metrics1: Taylor_diagram_spatial_pattern_of_multiyear_climatology
+plots1:    
+  file_name: Taylor_diagram_spatial
+  
+
+
+metrics2: Taylor_diagram_temporal
+plots2:    
+  file_name: Taylor_diagram_temporal
+
+
+# metrics3: Map_plot_bias_of_multiyear_climatology
+# plots3:
+     # file_name: Map_plot_zonal
+     # subplots_array: [4,5]  # i*j = jumlah model + 2 
+    
+# metrics1: Timeseries_plot_subregion_annual_cycle
+# plots1:
+     # file_name: Timeseries_plot2
+     # subplots_array: [3,3]
+
+# metrics2: Timeseries_plot_subregion_annual_cycle_NL
+# plots2:
+     # file_name: Timeseries_plot2
+     # subplots_array: [3,3]
+    
+# metrics6: Portrait_diagram_subregion_annual_cycle
+# plots6:
+     # file_name: Portrait
+
+use_subregions: False
+
+subregions:
+    #SEA -14.5, 25.5, 90, 145
+    R1:
+      [-14.5, 25.5, 90, 145]
+
+    # R1:
+      # [-2, 6, 95, 101.5]
+    # R2:
+      # [-6, 2, 101.5, 108]
+    # R3:
+      # [-10, -6, 105.5, 116]
+    # R4:
+      # [-11.5, -7, 116, 128]
+    # R5:
+      # [-0.2, 5, 109, 118.5]
+    # R6:
+      # [-5.5, -0.2, 109, 118.5]
+    # R7:
+      # [-6, 2.5, 118.5, 125]
+    # R8:
+      # [-4, -0.2, 125, 134]
+
+# subregions:
+# #subregion name (R01, R02, R03,....) followed by an array of boundaries [south, north, west, east]
+    # R01:
+      # [-6, -2, 100.5, 106.5]
+    # R02:
+      # [-2, 2, 98, 104]
+    # R03:
+      # [2, 6, 95, 100]
+
+# subregions:
+# #subregion name (R01, R02, R03,....) followed by an array of boundaries [south, north, west, east]
+    # R1:
+      # [-6, 0, 99, 106.5]
+    # R2:
+      # [0, 6, 95, 104]
