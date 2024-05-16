@@ -37,7 +37,7 @@ from ocw.evaluation import Evaluation
 from scipy.stats import mstats
 from numpy import argsort
 
-print('Program IPB CORDEX-SEA evaluation system v1.0')
+print('IPB CORDEX-SEA evaluation system v1.0')
 print('')
 
 def load_datasets_from_config(*loader_opts):
